@@ -1,9 +1,6 @@
-name: Deploy Infrastructure
+name: destroy Infrastructure
 
 on:
-  push:
-    branches:
-      - main
   workflow_dispatch:  # Allows manual triggering
 env:
   AWS_ACCOUNT_ID: ${{ secrets.AWS_ACCOUNT_ID }}
