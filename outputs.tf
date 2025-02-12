@@ -8,7 +8,3 @@ output "public_ip" {
   value       = module.ec2.public_ip
 }
 
-output "ssm_document_name" {
-  description = "Name of the SSM document"
-  value       = module.ssm.ssm_document_name
-}
