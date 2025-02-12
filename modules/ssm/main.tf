@@ -7,9 +7,14 @@ resource "aws_ssm_association" "chef_association" {
   }
 
   parameters = {
-    SourceType             = "S3"
-    SourceInfo             = jsonencode({ path = "https://aws-applychefrecipes-examples.s3.amazonaws.com/apply-chef-recipes-example-cookbook.tar.gz" })
-    RunList                = "recipe[apply-chef-recipes-example-cookbook::default]"
+    SourceType             = "GitHub"
+    SourceInfo             = jsonencode({
+                               owner      = "dev-sec",
+                               repository = "chef-os-hardening",
+                               path       = "",         # Set to a subdirectory if needed
+                               getOptions = "branch:master"
+                             })
+    RunList                = "recipe[os-hardening::default]"
     JsonAttributesSources  = "-"
     JsonAttributesContent  = "{\"filepath\":\"example.txt\", \"content\":\"Hello, World!\"}"
     ChefClientVersion      = "14"
