@@ -7,6 +7,7 @@ variable "aws_region" {
 variable "ami" {
   description = "AMI to use for the EC2 instance (ensure it has SSM Agent installed)"
   type        = string
+  default    = "ami-085ad6ae776d8f09c" # Example AMI, replace with a valid one=
 }
 
 variable "instance_type" {
