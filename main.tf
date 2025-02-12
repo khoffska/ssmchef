@@ -16,3 +16,4 @@ module "ssm" {
   chef_commands = var.chef_commands
   instance_id  = module.ec2.instance_id
 }
+ 
