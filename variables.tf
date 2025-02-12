@@ -37,3 +37,4 @@ variable "chef_commands" {
     "sudo chef-client -o 'recipe[cookbook::default]'"
   ]
 }
+ 
