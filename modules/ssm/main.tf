@@ -7,16 +7,12 @@ resource "aws_ssm_association" "chef_association" {
   }
 
   parameters = {
-    SourceType             = "GitHub"
-    SourceInfo             = jsonencode({
-                               owner      = "dev-sec",
-                               repository = "chef-os-hardening",
-                               path       = "",         # Set to a subdirectory if needed
-                               getOptions = "branch:master"
-                             })
-    RunList                = "recipe[os-hardening::default]"
+    SourceType             = "S3"
+    # Ensure the S3 URL is publicly accessible or the instance can access it via appropriate IAM roles.
+    SourceInfo             = "{\"path\":\"https://chefcookbooks9999.s3.amazonaws.com/docker-11.9.2.tar.gz\"}"
+    RunList                = "recipe[docker::default]"  # Adjust to your desired cookbook and recipe.
     JsonAttributesSources  = "-"
-    JsonAttributesContent  = "{\"filepath\":\"example.txt\", \"content\":\"Hello, World!\"}"
+    JsonAttributesContent  = "-"
     ChefClientVersion      = "14"
     ChefClientArguments    = "-"
     WhyRun                 = "False"
@@ -25,4 +21,5 @@ resource "aws_ssm_association" "chef_association" {
     ComplianceReportBucket = "-"
     ChefExecutionTimeout   = "3600"
   }
+}
 }
