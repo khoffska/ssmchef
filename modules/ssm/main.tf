@@ -16,5 +16,8 @@ resource "aws_ssm_document" "chef_deploy_document" {
 
 resource "aws_ssm_association" "chef_deploy_association" {
   name        = aws_ssm_document.chef_deploy_document.name
-  instance_id = var.instance_id
+  targets {
+    key    = "InstanceIds"
+    values = [var.instance_id]
+  }
 }
