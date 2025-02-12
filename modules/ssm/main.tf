@@ -1,23 +1,23 @@
-resource "aws_ssm_document" "chef_deploy_document" {
-  name          = var.document_name
-  document_type = "Command"
-  content       = jsonencode({
-    schemaVersion = "2.0",
-    description   = "Run Chef client to deploy cookbooks",
-    mainSteps     = [{
-      action = "aws:runShellScript",
-      name   = "runChef",
-      inputs = {
-        runCommand = var.chef_commands
-      }
-    }]
-  })
-}
+resource "aws_ssm_association" "chef_association" {
+  name = "AWS-ApplyChefRecipes"
 
-resource "aws_ssm_association" "chef_deploy_association" {
-  name        = aws_ssm_document.chef_deploy_document.name
   targets {
     key    = "InstanceIds"
     values = [var.instance_id]
+  }
+
+  parameters = {
+    SourceType             = ["S3"]
+    SourceInfo             = [jsonencode({ path = "https://aws-applychefrecipes-examples.s3.amazonaws.com/apply-chef-recipes-example-cookbook.tar.gz" })]
+    RunList                = ["recipe[apply-chef-recipes-example-cookbook::default]"]
+    JsonAttributesSources  = ["-"]
+    JsonAttributesContent  = ["{\"filepath\":\"example.txt\", \"content\":\"Hello, World!\"}"]
+    ChefClientVersion      = ["14"]
+    ChefClientArguments    = ["-"]
+    WhyRun                 = ["False"]
+    ComplianceSeverity     = ["None"]
+    ComplianceType         = ["Custom:Chef"]
+    ComplianceReportBucket = ["-"]
+    ChefExecutionTimeout   = ["3600"]
   }
 }
