@@ -2,7 +2,7 @@ resource "aws_ssm_document" "chef_deploy_document" {
   name          = var.document_name
   document_type = "Command"
   content       = jsonencode({
-    schemaVersion = "2.2",
+    schemaVersion = "2.0",
     description   = "Run Chef client to deploy cookbooks",
     mainSteps     = [{
       action = "aws:runShellScript",
