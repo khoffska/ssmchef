@@ -1,7 +1,7 @@
 variable "document_name" {
   description = "Name of the SSM document"
   type        = string
-  default     = "DeployChefCookbooks"
+  default     = "DeployChefCookboooks"
 }
 
 variable "chef_commands" {
