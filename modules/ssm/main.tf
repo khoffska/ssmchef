@@ -22,4 +22,3 @@ resource "aws_ssm_association" "chef_association" {
     ChefExecutionTimeout   = "3600"
   }
 }
-}
