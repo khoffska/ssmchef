@@ -27,7 +27,7 @@ variable "ec2_tags" {
 variable "document_name" {
   description = "Name of the SSM document"
   type        = string
-  default     = "DeployChefCookbooks"
+  default     = "DeployChefCookbooks - v1.0"
 }
 
 variable "chef_commands" {
