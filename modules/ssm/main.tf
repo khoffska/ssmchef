@@ -13,15 +13,11 @@ resource "aws_ssm_association" "chef_association" {
     })
     ChefVersion             = "16"
     RunCommand              = "False"
-    RunList                = "recipe[docker_wrapper2::default]"
-    JsonAttributesSources  = "-"
-    JsonAttributesContent  = "-"
+    RunList                = "recipe[docker_wrapper2::default]"    
     ChefClientVersion      = "16"
-    ChefClientArguments    = "-"
     WhyRun                 = "False"
     ComplianceSeverity     = "None"
     ComplianceType         = "Custom:Chef"
-    ComplianceReportBucket = "-"
     ChefExecutionTimeout   = "3600"
   }
 }
