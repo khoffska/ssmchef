@@ -7,22 +7,17 @@ resource "aws_ssm_association" "chef_association" {
   }
 
   parameters = {
-    SourceType             = "GitHub"
-    SourceInfo = jsonencode({
-      owner      = "khoffska",
-      repository = "ssmchef",
-      path       = "",            
-      getOptions = "branch:main"  
-    })
-    RunList               = "recipe[docker_wrapper::default]"  // Change to a wrapper recipe if needed
-    JsonAttributesSources = "-"
-    JsonAttributesContent = "-"
-    ChefClientVersion     = "14"
-    ChefClientArguments   = "-"
-    WhyRun                = "False"
-    ComplianceSeverity    = "None"
-    ComplianceType        = "Custom:Chef"
-    ComplianceReportBucket= "-"
-    ChefExecutionTimeout  = "3600"
+    SourceType = "S3"
+    SourceInfo = "{\"path\": \"https://chefcookbooks9999.s3.amazonaws.com/dockerwrapper.tar.gz\"}"
+    RunList                = "recipe[docker_wrapper::default]"
+    JsonAttributesSources  = "-"
+    JsonAttributesContent  = "-"
+    ChefClientVersion      = "14"
+    ChefClientArguments    = "-"
+    WhyRun                 = "False"
+    ComplianceSeverity     = "None"
+    ComplianceType         = "Custom:Chef"
+    ComplianceReportBucket = "-"
+    ChefExecutionTimeout   = "3600"
   }
 }
