@@ -12,7 +12,7 @@ resource "aws_ssm_association" "chef_association" {
     RunList                = "recipe[docker_wrapper2::default]"
     JsonAttributesSources  = ""
     JsonAttributesContent  = ""
-    ChefClientVersion      = "14"
+    ChefClientVersion      = "16"
     ChefClientArguments    = ""
     WhyRun                 = "False"
     ComplianceSeverity     = "None"
