@@ -8,14 +8,13 @@ resource "aws_ssm_association" "chef_association" {
 
   parameters = {
     SourceType             = "GitHub"
-    # Ensure the S3 URL is publicly accessible or the instance can access it via appropriate IAM roles. 
     SourceInfo = jsonencode({
-      owner      = "sous-chefs",
-      repository = "docker",
-      path       = "",            // Path within the repo, if needed (empty if at root)
-      getOptions = "branch:main"  // Adjust if you want to pull a different branch
+      owner      = "khoffska",
+      repository = "ssmchef",
+      path       = "",            
+      getOptions = "branch:main"  
     })
-    RunList               = "recipe[docker]"  // Change to a wrapper recipe if needed
+    RunList               = "recipe[docker_wrapper::default]"  // Change to a wrapper recipe if needed
     JsonAttributesSources = "-"
     JsonAttributesContent = "-"
     ChefClientVersion     = "14"
