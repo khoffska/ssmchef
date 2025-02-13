@@ -8,9 +8,7 @@ resource "aws_ssm_association" "chef_association" {
 
   parameters = {
     SourceType = "S3"
-    SourceInfo = jsonencode({
-      path = "https://chefcookbooks9999.s3.amazonaws.com/dockerwrapper2.tar.gz"
-    })
+    SourceInfo = jsonencode({path = "https://chefcookbooks9999.s3.amazonaws.com/dockerwrapper2.tar.gz"})
     RunList                = "recipe[docker_wrapper2::default]"    
     ChefClientVersion      = "16"
     WhyRun                 = "False"
