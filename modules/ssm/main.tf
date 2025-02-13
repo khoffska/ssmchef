@@ -8,16 +8,16 @@ resource "aws_ssm_association" "chef_association" {
 
   parameters = {
     SourceType = "S3"
-    SourceInfo = "{\"path\": \"https://chefcookbooks9999.s3.amazonaws.com/dockerwrapper.tar.gz\"}"
-    RunList                = "recipe[docker_wrapper::default]"
-    JsonAttributesSources  = "-"
-    JsonAttributesContent  = "-"
+    SourceInfo = "{\"path\": \"https://chefcookbooks9999.s3.amazonaws.com/dockerwrapper2.tar.gz\"}"
+    RunList                = "recipe[docker_wrapper2::default]"
+    JsonAttributesSources  = ""
+    JsonAttributesContent  = ""
     ChefClientVersion      = "14"
-    ChefClientArguments    = "-"
+    ChefClientArguments    = ""
     WhyRun                 = "False"
     ComplianceSeverity     = "None"
     ComplianceType         = "Custom:Chef"
-    ComplianceReportBucket = "-"
+    ComplianceReportBucket = ""
     ChefExecutionTimeout   = "3600"
   }
 }

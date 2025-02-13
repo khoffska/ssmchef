@@ -30,7 +30,12 @@ resource "aws_iam_role_policy" "s3_get_policy" {
       {
         Effect   = "Allow",
         Action   = "s3:GetObject",
-        Resource = "*"
+        Resource = "arn:aws:s3:::chefcookbooks9999/*"
+      },
+      {
+        Effect   = "Allow",
+        Action   = "s3:ListBucket",
+        Resource = "arn:aws:s3:::chefcookbooks9999"
       }
     ]
   })
