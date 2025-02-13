@@ -15,3 +15,8 @@ variable "ssm_policy_arn" {
   type        = string
   default     = "arn:aws:iam::aws:policy/AmazonSSMManagedInstanceCore"
 }
+variable "s3_cookbooks" {
+  description = "Name of the S3 bucket to store cookbooks"
+  type        = string
+  default     = "arn:aws:s3:::chefcookbooks9999"
+}

@@ -37,4 +37,8 @@ variable "chef_commands" {
     "sudo chef-client -o 'recipe[cookbook::default]'"
   ]
 }
- 
+variable "s3_cookbooks" {
+  description = "Name of the S3 bucket to store cookbooks"
+  type        = string
+  default     = "chefcookbooks9999"
+}
