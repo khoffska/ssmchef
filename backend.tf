@@ -7,3 +7,4 @@ terraform {
     dynamodb_table = "terraform-locks-ec2chef"                   # DynamoDB table for state locking
   }
 }
+ 
