@@ -8,5 +8,5 @@ resource "aws_instance" "chef_instance" {
     curl -L https://omnitruck.chef.io/install.sh | sudo bash
   EOF
   tags = var.tags
-  associate_public_ip_address = false
+  associate_public_ip_address = false 
 }
