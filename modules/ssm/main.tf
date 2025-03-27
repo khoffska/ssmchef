@@ -8,8 +8,8 @@ resource "aws_ssm_association" "chef_association" {
 
   parameters = {
     SourceType = "S3"
-    SourceInfo = jsonencode({path = "https://chefcookbooks9999.s3.amazonaws.com/auditd.tar.gz"})
-    RunList                = "recipe[emacs::default]"    
+    SourceInfo = jsonencode({path = "https://chefcookbooks9999.s3.amazonaws.com/chefcloudsetup.tar.gz"})
+    RunList                = "recipe[starter::default]"    
     ChefClientVersion      = "16"
     WhyRun                 = "False"
     ComplianceSeverity     = "None"
