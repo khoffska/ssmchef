@@ -9,7 +9,7 @@ variable "ami" {
   type        = string
   default    = "ami-04b4f1a9cf54c11d0" # Example AMI, replace with a valid one=
 }
-
+ 
 variable "instance_type" {
   description = "EC2 instance type"
   type        = string
