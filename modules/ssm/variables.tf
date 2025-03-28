@@ -33,6 +33,10 @@ variable "env_recipes" {
         tar_file = "fail2ban.tar.gz"
       },
       {
+        runlist  = "recipe[users::default]"
+        tar_file = "users.tar.gz"
+      },
+      {
         runlist  = "recipe[docker_wrapper2::default]"
         tar_file = "dockerwrapper2.tar.gz"
       }
