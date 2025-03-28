@@ -16,4 +16,6 @@ module "ssm" {
   chef_commands = var.chef_commands
   instance_id  = module.ec2.instance_id
 }
- 
+module "vpc" {
+  source = "./modules/vpc"
+}
