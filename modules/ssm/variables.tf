@@ -25,10 +25,6 @@ variable "env_recipes" {
   default = {
     Development = [
       {
-        runlist  = "recipe[emacs::default]"
-        tar_file = "auditd.tar.gz"
-      },
-      {
         runlist  = "recipe[starter::default]"
         tar_file = "chefcloudsetup.tar.gz"
       },
