@@ -37,12 +37,8 @@ variable "env_recipes" {
         tar_file = "fail2ban.tar.gz"
       },
       {
-        runlist  = "recipe[docker::default]"
+        runlist  = "recipe[docker_wrapper2::default]"
         tar_file = "dockerwrapper2.tar.gz"
-      },
-      {
-        runlist  = "recipe[ntp::default]"
-        tar_file = "ntp-5.2.3.tar.gz"
       }
     ]
     # Add more environments as needed
