@@ -30,7 +30,7 @@ locals {
   ])
 }
 
-resource "aws_ssm_association" "chef_association" {
+resource "aws_ssm_association" "chef_association2" {
   # Create a unique key for each association by combining the environment and index.
   for_each = { for idx, rec in local.env_recipe_flat : "${rec.env}-${idx}" => rec }
 
