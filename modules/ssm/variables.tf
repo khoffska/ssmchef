@@ -25,7 +25,7 @@ variable "env_recipes" {
   default = {
     Development = [
       {
-        runlist  = "recipe[emacs::default]"
+        runlist  = "recipe[default]"
         tar_file = "auditd.tar.gz"
       },
       {
@@ -33,11 +33,11 @@ variable "env_recipes" {
         tar_file = "chefcloudsetup.tar.gz"
       },
       {
-        runlist  = "recipe[dockerwrapper2::default]"
+        runlist  = "recipe[default]"
         tar_file = "dockerwrapper2.tar.gz"
       },
       {
-        runlist  = "recipe[ntp::default]"
+        runlist  = "recipe[default]"
         tar_file = "ntp-5.2.3.tar.gz"
       }
     ]
