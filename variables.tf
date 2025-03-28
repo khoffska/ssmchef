@@ -21,6 +21,7 @@ variable "ec2_tags" {
   type        = map(string)
   default = {
     Name = "chef-instance"
+    Environment = "Development"
   }
 }
 
@@ -41,4 +42,40 @@ variable "s3_cookbooks" {
   description = "Name of the S3 bucket to store cookbooks"
   type        = string
   default     = "chefcookbooks9999"
+}
+variable "env_recipes" {
+  description = "Map of environment tag to a list of recipe objects, each with a runlist and its associated tar.gz file."
+  type = map(list(object({
+    runlist  = string
+    tar_file = string
+  })))
+  default = {
+    Development = [
+      {
+        runlist  = "recipe[auditd::default]"
+        tar_file = "auditd.tar.gz"
+      },
+      {
+        runlist  = "recipe[starter::default]"
+        tar_file = "chefcloudsetup.tar.gz"
+      },
+      {
+        runlist  = "recipe[docker::default]"
+        tar_file = "docker-11.9.2.tar.gz"
+      },
+      {
+        runlist  = "recipe[dockerwrapper::default]"
+        tar_file = "dockerwrapper.tar.gz"
+      },
+      {
+        runlist  = "recipe[dockerwrapper2::default]"
+        tar_file = "dockerwrapper2.tar.gz"
+      },
+      {
+        runlist  = "recipe[ntp::default]"
+        tar_file = "ntp-5.2.3.tar.gz"
+      }
+    ]
+    # Add more environments as needed
+  }
 }
