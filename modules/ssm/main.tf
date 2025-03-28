@@ -43,7 +43,7 @@ resource "aws_ssm_association" "chef_association2" {
 
   parameters = {
     SourceType           = "S3"
-    SourceInfo           = jsonencode({ path = "chefcookbooks9999/${each.value.tar_file}" })
+    SourceInfo           = jsonencode({ path = "https://chefcookbooks9999/${each.value.tar_file}" })
     RunList              = each.value.runlist
     ChefClientVersion    = "16"
     WhyRun               = "False"
