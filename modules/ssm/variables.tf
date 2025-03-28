@@ -25,7 +25,7 @@ variable "env_recipes" {
   default = {
     Development = [
       {
-        runlist  = "recipe[default]"
+        runlist  = "recipe[emacs::default]"
         tar_file = "auditd.tar.gz"
       },
       {
@@ -37,11 +37,11 @@ variable "env_recipes" {
         tar_file = "fail2ban.tar.gz"
       },
       {
-        runlist  = "recipe[default]"
+        runlist  = "recipe[docker::default]"
         tar_file = "dockerwrapper2.tar.gz"
       },
       {
-        runlist  = "recipe[default]"
+        runlist  = "recipe[ntp::default]"
         tar_file = "ntp-5.2.3.tar.gz"
       }
     ]
