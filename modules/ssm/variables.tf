@@ -25,20 +25,12 @@ variable "env_recipes" {
   default = {
     Development = [
       {
-        runlist  = "recipe[auditd::default]"
+        runlist  = "recipe[emacs::default]"
         tar_file = "auditd.tar.gz"
       },
       {
         runlist  = "recipe[starter::default]"
         tar_file = "chefcloudsetup.tar.gz"
-      },
-      {
-        runlist  = "recipe[docker::default]"
-        tar_file = "docker-11.9.2.tar.gz"
-      },
-      {
-        runlist  = "recipe[dockerwrapper::default]"
-        tar_file = "dockerwrapper.tar.gz"
       },
       {
         runlist  = "recipe[dockerwrapper2::default]"
